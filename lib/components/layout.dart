@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../about.dart';
+import '../data_page.dart';
 import '../maps_page.dart';
 
 Widget buildDrawer(BuildContext context) => Drawer(
@@ -28,8 +29,7 @@ Widget buildDrawer(BuildContext context) => Drawer(
                       builder: (BuildContext context) => AboutPage()));
             },
           ),
-
-            ListTile(
+          ListTile(
             title: Text("Maps"),
             onTap: () {
               Navigator.push(
@@ -37,10 +37,35 @@ Widget buildDrawer(BuildContext context) => Drawer(
                   MaterialPageRoute(
                       builder: (BuildContext context) => MapsPage()));
             },
+          ),
+          ListTile(
+            title: Text("CRUD Markers (Firebase)"),
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (BuildContext context) => CrudPage()));
+            },
           )
-
-          
         ],
       ),
     );
 
+Widget buildInputText(String name, TextInputType type, Function onChange,dynamic value) {
+  return TextFormField(
+    initialValue: value.toString(),
+    decoration: InputDecoration(
+      hintText: name,
+    ),
+    keyboardType: type,
+    onChanged: (val){
+      onChange(val);
+    },
+    validator: (val) {
+      if (val.isEmpty) {
+        return "Please enater a $name";
+      }
+      return null;
+    },
+  );
+}
