@@ -1,10 +1,6 @@
 # pruebas_flutter
 
-A new Flutter project to learning by esbgo97.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
+This project shows a basic implementation of an app with most common used components in flutter.
 
 ## Features
 
